@@ -21,8 +21,3 @@ This Phase is a Python-based cyber-physical system (CPS) simulation that models 
 
 
 * **Crash Dynamics & Logging:** If the firewall fails or is absent and the car accelerates beyond 40 m/s, a critical failure is triggered, resulting in a crash. All telemetry (time, speed, fuel) is logged internally for post-race analysis and visualization.
-
-
-
-**Use Case**
-This project serves as an educational tool for understanding the intersection of software security, control theory, and physical engineering in autonomous robotics.
