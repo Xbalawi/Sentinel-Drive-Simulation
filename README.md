@@ -48,6 +48,7 @@ To test vehicle adaptability, the simulation now includes dynamic weather events
 * Once rain is detected, track safety protocols force all active vehicles to restrict their target speed to a maximum of 14 meters per second.   
 
 **AI Evolution and Training Loop**
+
 The AI vehicle's strategy has been upgraded from a static calculation to an evolutionary learning model.   
 
 * **Genetic Weight Parameter:** The AI now utilizes a mutable ai_weight parameter to continuously map its fuel-to-distance ratio into an optimal speed.   
