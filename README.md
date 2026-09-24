@@ -29,8 +29,8 @@ This phase executes the multi-vehicle racing environment, tracking driver perfor
 **Official Post-Race Results**
 
 The telemetry system captures the behavioral trade-offs of each automated driving profile. Based on the official post-race telemetry report, the performance breakdown is as follows:   
-* **Aggressive Alice (Winner): Secured first place by completing the race in 53 seconds with a maximum speed of 28.0 and 87.2% fuel remaining.
+* **Aggressive Alice (Winner):** Secured first place by completing the race in 53 seconds with a maximum speed of 28.0 and 87.2% fuel remaining.
 
-* **ML Max (AI): Tied the 53-second finish time but reached a significantly higher maximum speed of 31.7, which resulted in a slightly lower remaining fuel capacity of 85.7%.
+* **ML Max (AI):** Tied the 53-second finish time but reached a significantly higher maximum speed of 31.7, which resulted in a slightly lower remaining fuel capacity of 85.7%.
 
-* **Safe Sam: Prioritized vehicle stability and fuel economy over pace, finishing in 65 seconds with a top speed restricted to 20.0, leaving a highly efficient 89.8% fuel in the tank. 
+* **Safe Sam:** Prioritized vehicle stability and fuel economy over pace, finishing in 65 seconds with a top speed restricted to 20.0, leaving a highly efficient 89.8% fuel in the tank. 
