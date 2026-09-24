@@ -34,3 +34,36 @@ The telemetry system captures the behavioral trade-offs of each automated drivin
 * **ML Max (AI):** Tied the 53-second finish time but reached a significantly higher maximum speed of 31.7, which resulted in a slightly lower remaining fuel capacity of 85.7%.
 
 * **Safe Sam:** Prioritized vehicle stability and fuel economy over pace, finishing in 65 seconds with a top speed restricted to 20.0, leaving a highly efficient 89.8% fuel in the tank. 
+
+# Phase 4: Dynamic Environments and Machine Learning Optimization
+
+The latest iterations of the simulation introduce unpredictable environmental variables and an autonomous learning loop to optimize the AI driver's strategy.
+
+**Randomized Weather Mechanics**
+
+To test vehicle adaptability, the simulation now includes dynamic weather events, specifically unpredictable rain constraints.   
+
+* The automated weather system is designed to trigger a downpour at a random interval between 5 and 45 seconds into the race.   
+
+* Once rain is detected, track safety protocols force all active vehicles to restrict their target speed to a maximum of 14 meters per second.   
+
+**AI Evolution and Training Loop**
+The AI vehicle's strategy has been upgraded from a static calculation to an evolutionary learning model.   
+
+* **Genetic Weight Parameter:** The AI now utilizes a mutable ai_weight parameter to continuously map its fuel-to-distance ratio into an optimal speed.   
+
+* **50-Epoch Training Protocol:** Before the official race begins, the AI runs through a 50-epoch training camp simulating a private, dry-weather track.   
+
+* **Algorithmic Mutation:** During each epoch, the system randomly mutates the weight parameter by shifting it up or down by a value between -40 and 40 to explore new pacing strategies.   
+
+* **Optimization:** The algorithm evaluates each run, saving the weight that yields the fastest completion time. In the provided telemetry log, the training successfully concluded with an optimal weight of 314.4.   
+
+**Updated Post-Race Results**
+
+Equipped with its newly learned optimal weight, the AI driver's performance scaled dramatically during the dynamic main event, despite a downpour triggering at the 15-second mark. The final telemetry breakdown is as follows:   
+
+* **ML Max (AI) (Winner):** Leveraged the pre-trained algorithm to finish first in 57 seconds. The vehicle hit a top speed of 31.7 and retained 85.2% of its fuel capacity.   
+
+* **Aggressive Alice:** Dropped to second place, finishing in 60 seconds with a maximum speed of 27.8 and 86.6% fuel remaining.   
+
+* **Safe Sam:** Maintained consistent stability, finishing the race in 68 seconds with a conservative top speed of 19.9 and an industry-leading 89.4% fuel left.
