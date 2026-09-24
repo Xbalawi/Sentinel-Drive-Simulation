@@ -68,3 +68,123 @@ Equipped with its newly learned optimal weight, the AI driver's performance scal
 * **Aggressive Alice:** Dropped to second place, finishing in 60 seconds with a maximum speed of 27.8 and 86.6% fuel remaining.   
 
 * **Safe Sam:** Maintained consistent stability, finishing the race in 68 seconds with a conservative top speed of 19.9 and an industry-leading 89.4% fuel left.
+
+
+
+**The File "PID_Contorller_Simulation"** that combines classical control systems, machine learning parameter optimization, cybersecurity defenses, and telemetry analysis.
+
+---
+
+## 1. Core Architecture & Components
+
+### 🧠 The Strategy Engine & RaceCar Blueprint
+
+The `RaceCar` class simulates a vehicle driving along a 1000m track with realistic speed caps, fuel consumption, dynamic weather adjustments, and crash conditions (speed $> 40\text{ m/s}$):
+
+* **Aggressive Strategy ("Aggressive Alice"):** Targets $28\text{ m/s}$ while fuel $> 15\%$, dropping to $12\text{ m/s}$ otherwise.
+
+
+* **Safe Strategy ("Safe Sam"):** Targets a conservative $20\text{ m/s}$ while fuel $> 10\%$, dropping to $12\text{ m/s}$ otherwise.
+
+
+* **AI Strategy ("ML Max"):** Dynamically calculates target speed based on remaining distance and available fuel:
+
+$$\text{calculated\_speed} = \left(\frac{\text{fuel}}{\max(1, 1000 - \text{distance})}\right) \times \text{ai\_weight}$$
+
+
+
+The target speed is bounded between $10\text{ m/s}$ and $32\text{ m/s}$.
+
+
+* **Rain Condition:** During downpours, maximum target speed across all strategies is capped at $14\text{ m/s}$.
+
+
+
+---
+
+### 🧮 PID Speed Controller
+
+Instead of instantaneously changing speed, cars adjust velocity using a **Proportional-Integral-Derivative (PID)** controller:
+
+1. **Proportional Error (Present):** $\text{error} = \text{target\_speed} - \text{perceived\_speed}$
+
+2. **Integral Error (Past):** $\text{integral\_error} = \sum \text{error}$ (clamped between $-50$ and $50$ for anti-windup protection)
+
+
+3. **Derivative Error (Future):** $\text{derivative\_error} = \text{error} - \text{previous\_error}$
+
+
+The throttle/brake command is calculated with gains $K_p = 0.3$, $K_i = 0.05$, and $K_d = 0.1$:
+
+
+$$\text{speed\_change} = (0.3 \cdot \text{error}) + (0.05 \cdot \text{integral\_error}) + (0.1 \cdot \text{derivative\_error})$$
+
+---
+
+### 🛡️ Cybersecurity & Firewall Protection
+
+The simulation includes a sensor spoofing cyber-attack:
+
+* At $t = 15\text{s}$, a spoofing attack introduces a $25\text{ m/s}$ sensor offset to Safe Sam.
+
+
+* Vehicles with `has_firewall = True` evaluate the raw speed delta ($\Delta = \vert{}\text{raw\_sensor\_speed} - \text{last\_trusted\_speed}\vert{}$). If $\Delta > 15\text{ m/s}$, the attack is identified, the spoofing offset is discarded, and the car falls back to its last trusted speed.
+
+
+
+---
+
+## 2. AI Evolutionary Training Protocol
+
+Before the race, `train_ai(epochs=50)` runs a genetic mutation loop over 50 dry-weather trial races to optimize `ai_weight`:
+
+1. **Mutation:** Shifts `best_weight` by a random offset $\in [-40, 40]$.
+
+
+2. **Evaluation:** Runs a 1000m test drive.
+
+
+3. **Selection:** Updates the record weight if the car completes the track in less time.
+
+
+
+**Training Progression Output:**
+
+* **Epoch 01:** Weight $150.0 \rightarrow 43\text{s}$ finish ($86.0\%$ fuel)
+
+
+* **Epoch 05:** Weight $180.1 \rightarrow 38\text{s}$ finish ($86.0\%$ fuel)
+
+
+* **Epoch 14:** Weight $228.0 \rightarrow 34\text{s}$ finish ($85.5\%$ fuel)
+
+
+* **Epoch 24:** Weight $318.8 \rightarrow 31\text{s}$ finish ($84.1\%$ fuel)
+
+
+* **Optimal AI Weight Found:** **`318.8`**
+
+
+---
+
+## 3. Main Event & Post-Race Telemetry
+
+During the live race event:
+
+* A random rain event hit at $t = 9\text{s}$, capping track speed limits to $14\text{ m/s}$.
+
+
+* Safe Sam successfully absorbed the $25\text{ m/s}$ cyber attack at $t = 15\text{s}$ thanks to its firewall.
+
+
+* ML Max used its learned weight ($318.8$) to balance acceleration prior to the rain and maintain optimum power output during track limit changes.
+
+
+
+### 🏆 Telemetry Standings
+
+| Driver | Status | Finish Time | Max Speed | Fuel Remaining |
+| --- | --- | --- | --- | --- |
+| **ML Max (AI)** 🥇 | FINISHED | **62s** | $36.5\text{ m/s}$ | $82.8\%$ |
+| **Aggressive Alice** | FINISHED | **64s** | $32.9\text{ m/s}$ | $84.5\%$ |
+| **Safe Sam** | FINISHED | **68s** | $24.2\text{ m/s}$ | $88.3\%$ |
