@@ -70,6 +70,7 @@ Equipped with its newly learned optimal weight, the AI driver's performance scal
 * **Safe Sam:** Maintained consistent stability, finishing the race in 68 seconds with a conservative top speed of 19.9 and an industry-leading 89.4% fuel left.
 
 
+# Phase 5: Autonomous Cyber-Physical Race Car Simulation
 
 **The File "PID_Contorller_Simulation"** that combines classical control systems, machine learning parameter optimization, cybersecurity defenses, and telemetry analysis.
 
@@ -89,7 +90,7 @@ The `RaceCar` class simulates a vehicle driving along a 1000m track with realist
 
 * **AI Strategy ("ML Max"):** Dynamically calculates target speed based on remaining distance and available fuel:
 
-$$\text{calculated\_speed} = \left(\frac{\text{fuel}}{\max(1, 1000 - \text{distance})}\right) \times \text{ai\_weight}$$
+$\text{calculated\_speed} = \left(\frac{\text{fuel}}{\max(1, 1000 - \text{distance})}\right) \times \text{ai\_weight}$$
 
 
 
