@@ -118,7 +118,7 @@ Instead of instantaneously changing speed, cars adjust velocity using a **Propor
 The throttle/brake command is calculated with gains $K_p = 0.3$, $K_i = 0.05$, and $K_d = 0.1$:
 
 
-$$\text{speed\_change} = (0.3 \cdot \text{error}) + (0.05 \cdot \text{integral\error}) + (0.1 \cdot \text{derivative\error})$$
+$$\text{speed\-change} = (0.3 \cdot \text{error}) + (0.05 \cdot \text{integral\error}) + (0.1 \cdot \text{derivative\error})$$
 
 ---
 
