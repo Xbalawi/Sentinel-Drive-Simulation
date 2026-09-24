@@ -90,7 +90,7 @@ The `RaceCar` class simulates a vehicle driving along a 1000m track with realist
 
 * **AI Strategy ("ML Max"):** Dynamically calculates target speed based on remaining distance and available fuel:
 
-$\text{calculated\_speed} = \left(\frac{\text{fuel}}{\max(1, 1000 - \text{distance})}\right) \times \text{ai\_weight}$$
+$$\text{calculated\speed} = \left(\frac{\text{fuel}}{\max(1, 1000 - \text{distance})}\right) \times \text{ai\weight}$$
 
 
 
@@ -107,18 +107,18 @@ The target speed is bounded between $10\text{ m/s}$ and $32\text{ m/s}$.
 
 Instead of instantaneously changing speed, cars adjust velocity using a **Proportional-Integral-Derivative (PID)** controller:
 
-1. **Proportional Error (Present):** $\text{error} = \text{target\_speed} - \text{perceived\_speed}$
+1. **Proportional Error (Present):** $\text{error} = \text{target\speed} - \text{perceived\speed}$
 
-2. **Integral Error (Past):** $\text{integral\_error} = \sum \text{error}$ (clamped between $-50$ and $50$ for anti-windup protection)
+2. **Integral Error (Past):** $\text{integral\error} = \sum \text{error}$ (clamped between $-50$ and $50$ for anti-windup protection)
 
 
-3. **Derivative Error (Future):** $\text{derivative\_error} = \text{error} - \text{previous\_error}$
+3. **Derivative Error (Future):** $\text{derivative\error} = \text{error} - \text{previous\error}$
 
 
 The throttle/brake command is calculated with gains $K_p = 0.3$, $K_i = 0.05$, and $K_d = 0.1$:
 
 
-$$\text{speed\_change} = (0.3 \cdot \text{error}) + (0.05 \cdot \text{integral\_error}) + (0.1 \cdot \text{derivative\_error})$$
+$$\text{speed\_change} = (0.3 \cdot \text{error}) + (0.05 \cdot \text{integral\error}) + (0.1 \cdot \text{derivative\error})$$
 
 ---
 
@@ -129,7 +129,7 @@ The simulation includes a sensor spoofing cyber-attack:
 * At $t = 15\text{s}$, a spoofing attack introduces a $25\text{ m/s}$ sensor offset to Safe Sam.
 
 
-* Vehicles with `has_firewall = True` evaluate the raw speed delta ($\Delta = \vert{}\text{raw\_sensor\_speed} - \text{last\_trusted\_speed}\vert{}$). If $\Delta > 15\text{ m/s}$, the attack is identified, the spoofing offset is discarded, and the car falls back to its last trusted speed.
+* Vehicles with `has_firewall = True` evaluate the raw speed delta ($\Delta = \vert{}\text{raw\_sensor\speed} - \text{last\trusted\speed}\vert{}$). If $\Delta > 15\text{ m/s}$, the attack is identified, the spoofing offset is discarded, and the car falls back to its last trusted speed.
 
 
 
