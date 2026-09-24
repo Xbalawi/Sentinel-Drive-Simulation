@@ -129,7 +129,7 @@ The simulation includes a sensor spoofing cyber-attack:
 * At $t = 15\text{s}$, a spoofing attack introduces a $25\text{ m/s}$ sensor offset to Safe Sam.
 
 
-* Vehicles with `has_firewall = True` evaluate the raw speed delta ($\Delta = \vert{}\text{raw\_sensor\speed} - \text{last\trusted\speed}\vert{}$). If $\Delta > 15\text{ m/s}$, the attack is identified, the spoofing offset is discarded, and the car falls back to its last trusted speed.
+* Vehicles with `has_firewall = True` evaluate the raw speed delta ($\Delta = \vert{}\text{raw\sensor\speed} - \text{last\trusted\speed}\vert{}$). If $\Delta > 15\text{ m/s}$, the attack is identified, the spoofing offset is discarded, and the car falls back to its last trusted speed.
 
 
 
